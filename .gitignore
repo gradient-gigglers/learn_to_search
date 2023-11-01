@@ -158,3 +158,14 @@ cython_debug/
 #  and can be added to the global gitignore or merged into this file.  For a more nuclear
 #  option (not recommended) you can uncomment the following to ignore the entire idea folder.
 #.idea/
+wandb/run-20231101_163206-fa4y18dl/run-fa4y18dl.wandb
+wandb/run-20231101_163206-fa4y18dl/files/conda-environment.yaml
+wandb/run-20231101_163206-fa4y18dl/files/config.yaml
+wandb/run-20231101_163206-fa4y18dl/files/requirements.txt
+wandb/run-20231101_163206-fa4y18dl/files/wandb-metadata.json
+wandb/run-20231101_163206-fa4y18dl/files/wandb-summary.json
+wandb/run-20231101_175745-b06bbr3h/run-b06bbr3h.wandb
+wandb/run-20231101_175745-b06bbr3h/files/conda-environment.yaml
+wandb/run-20231101_175745-b06bbr3h/files/config.yaml
+wandb/run-20231101_175745-b06bbr3h/files/requirements.txt
+wandb/run-20231101_175745-b06bbr3h/files/wandb-metadata.json

@@ -5,7 +5,7 @@ from pandas import json_normalize
 import json
 from pathlib import Path
 
-VOCAB_SIZE = 110897
+VOCAB_SIZE = 3000
 
 class Tokenizer:
   def __init__(self, fileName=None, prefix='M'):

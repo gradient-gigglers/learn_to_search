@@ -13,6 +13,6 @@ class CBOW(torch.nn.Module):
     return log_probs
 
 if __name__ == '__main__':
-  cbow = CBOW(20000, 50)
-  emb_weights = cbow.embeddings.weight.data # shape(20.000, 50)
+  cbow = CBOW(3000, 20)
+  emb_weights = cbow.embeddings.weight.data # shape(3000, 50)
   sentence = torch.tensor([[5, 89, 3]]) # shape(1, 3)
