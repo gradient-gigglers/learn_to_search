@@ -1,7 +1,6 @@
 import torch
 import tokenizer
 
-
 class W2VData(torch.utils.data.Dataset):
   def __init__(self, fileName, prefix, window_size=2):
     self.tokenizer = tokenizer.Tokenizer(fileName,prefix)
