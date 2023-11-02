@@ -164,3 +164,6 @@ cbow_epoch_2.pt
 passsage_corpus.txt
 passsage.model
 passsage.vocab
+passage_corpus.txt
+passage.model
+passage.vocab

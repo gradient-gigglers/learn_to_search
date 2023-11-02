@@ -23,12 +23,12 @@ if constants.WANDB_ON:
       }
   )
 
-w2v_ds = ds.W2VData(F"../dataset/{constants.DATASET}/0000.parquet","passage",3)
-dl = torch.utils.data.DataLoader(w2v_ds, batch_size=4, shuffle=True)
+w2v_ds = ds.W2VData(F"../dataset/{constants.DATASET}/0000.parquet","passage",constants.CBOW_WINDOW_SIZE)
+dl = torch.utils.data.DataLoader(w2v_ds, batch_size=constants.BATCH_SIZE, shuffle=True)
 
 cbow = model.CBOW(constants.VOCAB_SIZE, constants.DIMENSIONS)
 loss_function = torch.nn.NLLLoss()
-optimizer = torch.optim.SGD(cbow.parameters(), lr=0.001)
+optimizer = torch.optim.SGD(cbow.parameters(), lr=constants.LEARNING_RATE)
 
 for epoch in range(constants.EPOCHS):
   total_loss = 0
