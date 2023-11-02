@@ -14,6 +14,8 @@ class DataSetReader:
   def __init__(self, fileName=None, prefix='M'):
     self.tokenizer = tokenizer.Tokenizer(fileName,prefix)
     self.queryAndPassages = []
+    self.queries = []
+    self.passages = []
     data = dd.read_parquet(fileName)
     if constants.PARQUET_NUM_OF_ROWS:
       data = data.head(constants.PARQUET_NUM_OF_ROWS, compute=True)
@@ -30,4 +32,6 @@ class DataSetReader:
       for passage in item['passages']['passage_text']:
          passageIndices = self.tokenizer.encode(passage)
          passageEmbeddings.append(self.model.embeddings(torch.LongTensor(queryIndices)))
-      self.queryAndPassages.append( QueryAndPassages(queryEmbeddings,passageEmbeddings))    
+      self.queryAndPassages.append( QueryAndPassages(queryEmbeddings,passageEmbeddings))
+      self.queries.append([index,queryEmbeddings] )
+      self.passages.append([index,passageEmbeddings] )    
