@@ -167,3 +167,4 @@ passsage.vocab
 passage_corpus.txt
 passage.model
 passage.vocab
+*.pt

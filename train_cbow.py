@@ -15,11 +15,11 @@ if constants.WANDB_ON:
       
       # track hyperparameters and run metadata
       config={
-      "learning_rate": constants.LEARNING_RATE,
+      "learning_rate": constants.EMBEDDINGS_LEARNING_RATE,
       "dimensions": constants.DIMENSIONS,
       "dataset": constants.DATASET,
       "vocab_size": constants.VOCAB_SIZE,
-      "epochs": constants.EPOCHS,
+      "epochs": constants.NUM_OF_EMBEDDING_EPOCHS,
       }
   )
 
@@ -28,11 +28,11 @@ dl = torch.utils.data.DataLoader(w2v_ds, batch_size=constants.BATCH_SIZE, shuffl
 
 cbow = model.CBOW(constants.VOCAB_SIZE, constants.DIMENSIONS)
 loss_function = torch.nn.NLLLoss()
-optimizer = torch.optim.SGD(cbow.parameters(), lr=constants.LEARNING_RATE)
+optimizer = torch.optim.SGD(cbow.parameters(), lr=constants.EMBEDDINGS_LEARNING_RATE)
 
 for epoch in range(constants.EPOCHS):
   total_loss = 0
-  for context, target in tqdm.tqdm(dl, desc=f"Epoch {epoch+1}/{constants.EPOCHS}", unit="batch"):
+  for context, target in tqdm.tqdm(dl, desc=f"Epoch {epoch+1}/{constants.NUM_OF_EMBEDDING_EPOCHS}", unit="batch"):
     optimizer.zero_grad()
     log_probs = cbow(context)
     loss = loss_function(log_probs, target)
