@@ -11,7 +11,7 @@ class BiLSTMWithPooling(nn.Module):
     def __init__(self, input_size, hidden_dim, output_size,num_layers):
         super(BiLSTMWithPooling, self).__init__()
 
-        self.bilstm = nn.LSTM(input_size, hidden_dim,output_size, batch_first=True, bidirectional=True, num_layers=num_layers)
+        self.bilstm = nn.LSTM(input_size, hidden_dim,output_size, batch_first=True, bidirectional=True)
         self.fc = nn.Linear(2 * hidden_dim,output_size)  # 2 * hidden_dim due to bidirectional
 
     def forward(self, x):

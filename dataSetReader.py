@@ -21,7 +21,7 @@ class DataSetReader:
     if constants.PARQUET_NUM_OF_ROWS:
       data = data.head(constants.PARQUET_NUM_OF_ROWS, compute=True)
     self.model = model.CBOW(constants.VOCAB_SIZE, constants.DIMENSIONS)
-    self.model.load_state_dict(torch.load(f"./cbow_epoch_{constants.EPOCHS}.pt"))
+    self.model.load_state_dict(torch.load(f"./cbow_epoch_{constants.NUM_OF_EMBEDDING_EPOCHS}.pt"))
     self.model.eval()
     
     # Iterate through DataFrame rows
