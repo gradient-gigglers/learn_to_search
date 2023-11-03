@@ -4,7 +4,6 @@ import pandas
 import model
 import tqdm
 import wandb
-import tokenizer
 import constants
 
 # start a new wandb run to track this script
